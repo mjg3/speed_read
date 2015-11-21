@@ -4,7 +4,7 @@ store_app.config(function($routeProvider){
   $routeProvider
 
   .when('/', {
-    templateUrl: '/partials/dashboard.html'
+    templateUrl: '/partials/flash_cards.html'
   })
 
 })
@@ -15,4 +15,6 @@ store_app.factory('Factory', function($http){
 
 
 store_app.controller('Controller', function($scope, customerFactory){
+  $scope.practice_string = "I am working at the Coding Dojo right now!";
+
 })
