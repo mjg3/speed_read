@@ -1,0 +1,102 @@
+<div ng-controller="quizController">
+<style media="screen">
+  .container{
+    margin-top: 40px;
+    color: #3B3B3B;
+  }
+  h1, h2, h4 {
+    text-align: center;
+  }
+  p {
+    color: #E0E0E0;
+    font-size: 18px;
+  }
+  h1{
+    margin-bottom: 25px;
+    font-family: 'texgyreadventorregular';
+    text-transform: uppercase;
+​
+    background-color: #E0E0E0;
+    padding: 15px 10px;
+    border-radius: 5px;
+  }
+  .centered {
+    text-align: center;
+    margin: 20px;
+  }
+  .progress {
+    margin-top: 20px;
+  }
+  .banner {
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+  h3 {
+    text-transform: uppercase;
+  }
+  img {
+    width: 100%;
+    height: 250px;
+  }
+  .challenges {
+    margin-top: 80px;
+  }
+  h4 {
+    background-color: #E0E0E0;
+    padding: 15px 20px;
+    border-radius: 5px;
+  }
+  .bigger {
+    font-size: 16px;
+  }
+  .space_bg {
+    margin-right: 20px;
+  }
+  .space_md {
+    margin-right: 10px;
+    font-size: 24px;
+  }
+  .spacing {
+    line-height: 30px;
+  }
+  .dashboard {
+    background-color: #3B3B3B;
+    padding: 60px 80px;
+    border-radius: 5px;
+    margin-top: 25px;
+  }
+  .btns {
+    margin-top: 20px;
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1><span class="space_bg"><i class="fa fa-bar-chart-o"></span></i>Diagnostic</h1>
+      </div>
+    </div>
+​
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h4 class="spacing">Start the timer and read the passage to the best of your ability. <br> Don't forget to the stop the timer when you are done.</h4>
+      </div>
+    </div>
+​
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="dashboard">
+          <span ng-bind="passage"></span>
+        </div>
+        <div class="btns">
+          <button ng-click="startTime()" class="btn btn-lg btn-success"><span class="space_bg"><i class="fa fa-clock-o"></span></i>Start Reading!</a>
+          <button ng-click="endTime()" class="btn btn-lg btn-danger pull-right"><span class="space_bg"><i class="fa fa-stop"></span></i>Finished Reading!</a>
+        </div>
+      </div>
+    </div>
+​
+​
+​
+  </div> <!-- end of container -->
+</body>
+</html>

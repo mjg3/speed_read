@@ -1,11 +1,12 @@
-reading_app.controller('flashCardsController', function($scope, $rootScope, $interval, $location, quizFactory){
+
+reading_app.controller('flashCardsController', function($scope, $rootScope, $interval, $location, $timeout, quizFactory){
 
   if($rootScope.user == null) {
     $location.path('/');
   }
 
-  quizFactory.getQuiz(function(info) {
-    console.log(info);
+  console.log($rootScope.choice);
+  quizFactory.getQuiz($rootScope.choice, function(info) {
     $scope.passage = info[0].passage;
     $scope.words = $scope.passage.split(" ");
     $scope.percentage_complete = 0;
@@ -16,6 +17,7 @@ reading_app.controller('flashCardsController', function($scope, $rootScope, $int
 
 
   $scope.start = function() {
+  var words_per_minute = 1000/($rootScope.choice.speed/60)
   var show_words = $interval(function(){
     $scope.word = $scope.words.shift();
     $scope.counter++;
@@ -23,9 +25,12 @@ reading_app.controller('flashCardsController', function($scope, $rootScope, $int
     if ($scope.words[0] == null) {
       $interval.cancel(show_words);
       $scope.finished_flashing = true;
-      $location.path('/quiz');
+      $rootScope.flag = true;
+      $timeout(function(){
+        $location.path('/quiz');
+    }, 500);
     }
-  }, 10);
+  }, words_per_minute);
 }
 
 });

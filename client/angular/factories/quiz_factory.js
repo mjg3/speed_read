@@ -3,9 +3,9 @@ reading_app.factory('quizFactory', function($http, $rootScope, $location){
 
   var factory = {}
 
-  factory.getQuiz = function (callback) {
-    var test = {passage_id: 1} ;
-    $http.post('/get_quiz', test).success(function(info) {
+  factory.getQuiz = function (passage_choice, callback) {
+    var passage_choice = {passage_id: passage_choice.passage_id}
+    $http.post('/get_quiz', passage_choice).success(function(info) {
       callback(info);
     })
   }
