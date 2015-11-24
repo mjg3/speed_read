@@ -18,8 +18,8 @@ Schema = mongoose.Schema;
 var userSchema   = new mongoose.Schema({
   name: String,
   email: String,
-  password: String,
-  diagnostic: Array,
+  user_id: String,
+  diagnostic_performances: Array,
   created_at: Date,
   quiz_performances: Array
 
@@ -29,11 +29,10 @@ var quizSchema = new mongoose.Schema({
   answer_key: Array,
   passage_id: Number,
   passage: String,
-  questions: Object,
+  questions: Array,
   words_per_minute: Number,
 
 })
 
 var User = mongoose.model('User', userSchema);
-
 mongoose.model('Quiz', quizSchema);

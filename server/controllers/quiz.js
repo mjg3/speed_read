@@ -29,13 +29,13 @@ module.exports = (function(){
 
     store: function(req, res) {
       console.log(req.body.user_id);
-      User.update({name: 'Tommy'}, {$push: {quiz_performances: {score: req.body.score, date: Date()}}}, function(error){
+      User.update({user_id: req.body.user_id}, {$push: {quiz_performances: {score: req.body.score, date: Date()}}}, function(error){
         if (error) {
           console.log(error);
           console.log("Error trying to store the user's score");
         }
         else {
-          User.find({_id: req.body.user_id}, function(error, person){
+          User.find({user_id: req.body.user_id}, function(error, person){
             console.log(person);
             res.json(person);
           })

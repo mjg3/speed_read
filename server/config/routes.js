@@ -1,4 +1,4 @@
-// var customers = require('./../controllers/customer.js');
+var User    = require('./../controllers/user.js')
 var Quiz    = require('./../controllers/quiz.js');
 
 module.exports = function(app) {
@@ -9,5 +9,9 @@ module.exports = function(app) {
 
   app.post('/store_grade', function(req, res) {
     Quiz.store(req, res);
+  })
+
+  app.post('/add_user', function(req, res){
+    User.add(req, res);
   })
 };
