@@ -1,0 +1,41 @@
+<div ng-controller = "quizController">
+
+    <!-- START OF DIV TO DIV PARTIAL -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="quiz-title">
+            <h1 class="text-center"><i class="fa fa-check"></i>Time to test your stuff!</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row" ng-repeat="holder in quiz[0].questions track by $index">
+        <div class="col-md-6 col-md-offset-3">
+          <!-- QUESTION -->
+          <div class="">
+            <h3>{{$index + 1}}. {{holder.question}}</h3>
+          <div class="radio" ng-repeat="answer in holder.answer">
+            <input type="radio" name="{{holder.question}}" ng-model="$parent.$parent.userAnswers[$parent.$index]" value="{{answer}}">{{answer}}
+          </div>
+        </div>
+      </div>
+    </div>\
+
+      <!-- END OF QUESTION -->
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <a href="#" class="btn btn-default pull-right" ng-click="submit_quiz(quiz[0])">Get Results</a>
+        </div>
+      </div>
+    </div> <!-- end of container -->
+    <!-- END OF DIV TO DIV PARTIAL -->
+  ​
+    <div class="footer_bg">
+      <div class="container">
+        <div class="row  footer">
+          <div class="copy text-center">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var fs = require('fs');
 // connect to the database
-mongoose.connect('mongodb://localhost/FullMean_Friends');
+mongoose.connect('mongodb://localhost/speed_read');
 // specify the path to all of the models
 var models_path = __dirname + '/../models'
 
@@ -13,8 +13,27 @@ fs.readdirSync(models_path).forEach(function(file) {
   }
 })
 
+Schema = mongoose.Schema;
 
-// var someSchema = new mongoose.Schema ({
-// })
+var userSchema   = new mongoose.Schema({
+  name: String,
+  email: String,
+  password: String,
+  diagnostic: Array,
+  created_at: Date,
+  quiz_performances: Array
 
-// mongoose.model('Customer', CustomerSchema);
+})
+
+var quizSchema = new mongoose.Schema({
+  answer_key: Array,
+  passage_id: Number,
+  passage: String,
+  questions: Object,
+  words_per_minute: Number,
+
+})
+
+var User = mongoose.model('User', userSchema);
+
+mongoose.model('Quiz', quizSchema);

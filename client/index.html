@@ -1,177 +1,110 @@
-<!DOCTYPE HTML>
 <html ng-app="reading_app">
 <head>
- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-  <script type="text/javascript" src="./script.js"></script>
-  <script type="text/javascript" src="./angular/config/routes.js"></script>
-<!-- ALL ANGULAR bootstrap above!-->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
+  <script src="script.js"></script>
+  <script src="./angular/config/routes.js"></script>
+  <script src="./angular/factories/quiz_factory.js"></script>
+  <script src="./angular/controllers/flash_cards.js"></script>
+  <script src="./angular/controllers/quiz.js"></script>
+  <script src="./angular/controllers/login.js"></script>
+  <!-- We use client cookies to save the user credentials -->
+  <script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
 
-<title>Learner a education bootstrap Website Template | Home :: w3layouts</title>
-<!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
- <!--[if lt IE 9]>
-     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<!-- start plugins -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<!-- start slider -->
-<link href="css/slider.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
-<script type="text/javascript" src="js/jquery.cslider.js"></script>
+  <!-- Auth0 Lock script and AngularJS module -->
+  <script src="//cdn.auth0.com/js/lock-7.9.min.js"></script>
+  <!-- angular-jwt and angular-storage -->
+  <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
+  <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+  <script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>
 
-<!--font-Awesome-->
-   	<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
-<!--font-Awesome-->
-<style>
-	.btn-success{
-		margin-right: 10px !important;
-	}
-	.btn-sm{
-		padding-right: 15px;
-		padding-left: 15px;
-	}
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <!-- Bootstrap -->
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+  <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  <style media="screen">
+  /**** INDEX ****/
+  .footer_bg {
+    width: 100% !important;
+    height: 200px;
+  }
+  #tagline {
+    text-align: left !important;
+    margin-top: 155px;
+    margin-left: 40px;
+    text-decoration: italic;
+  }
+  .space {
+    margin-right: 10px;
+  }
 
+  /**** QUIZ ****/
+  .container{
+    margin-top: 40px;
+    color: #3B3B3B;
+  }
+  .quiz-title{
+    padding: 20px 30px;
+    background-color: #FF5454;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  .radio {
+    font-size: 16px !important;
+  }
+  /**** /flashcard ****/
+  .dashboard {
+    background-color: #3B3B3B;
+    padding: 100px 150px;
+    border-radius: 5px;
+    margin-top: 25px;
+  }
+  h1, h2, h4 {
+    text-align: center;
+  }
+  h2{
+    color: #E0E0E0;
+  }
+  h1{
+    margin-bottom: 25px;
+    font-family: 'texgyreadventorregular';
+    text-transform: uppercase;
+  }
+  .centered {
+    text-align: center;
+    margin: 20px;
+  }
+  .progress {
+    margin-top: 20px;
+  }
+    /**** /flashcard ****/
+  </style>
+  <!-- start plugins -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- start slider -->
+  <link href="css/slider.css" rel="stylesheet" type="text/css" media="all" />
+  <script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
+  <!-- <script type="text/javascript" src="js/jquery.cslider.js"></script> -->
+
+  <!-- Owl Carousel Assets -->
+  <!-- <link href="css/owl.carousel.css" rel="stylesheet">
+  <script src="js/owl.carousel.js"></script> -->
+  <!-- font-Awesome -->
+  <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+  <!-- font-Awesome -->
 </head>
 <body>
-<div class="header_bg">
-<div class="container">
-	<h1>hi</h1>
-	<div class="row header">
-		<div class="logo navbar-left">
-			<h1><a href="index.html">SpeedRead</a></h1>
-		</div>
-		<div class="btn-primary btn-sm navbar-right">
-			<h4>Register</h4>
-		</div>
-		<div class="btn-success btn-sm navbar-right">
-			<h4>Login</h4>
-		</div>
-	</div>
-</div>
-</div>
-<div class="container">
-	<div class="row h_menu">
-		<nav class="navbar navbar-default navbar-left" role="navigation">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		    </div>
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="index.html">Home</a></li>
-		        <li><a href="technology.html">Technologies</a></li>
-		        <li><a href="about.html">About</a></li>
-		        <li><a href="blog.html">Blog</a></li>
-		        <li><a href="contact.html">Contact</a></li>
-		      </ul>
-		    </div><!-- /.navbar-collapse -->
-		    <!-- start soc_icons -->
-		</nav>
-	</div>
-</div>
-
-<!-- <div ng-view =""> -->
-
-
-<div class="slider_bg"><!-- start slider -->
-	<div class="container">
-		<div id="da-slider" class="da-slider text-center">
-			<div>
-				<h2>education portal</h2>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span class="hide_text"> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span></p>
-				<h3 class="da-link"><a href="single-page.html" class="fa-btn btn-1 btn-1e">view more</a></h3>
-			</div>
-			<!-- <div>
-				<h2>online educations</h2>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span class="hide_text">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span></p>
-				<h3 class="da-link"><a href="single-page.html" class="fa-btn btn-1 btn-1e">view more</a></h3>
-			</div> -->
-			<!-- <div class="da-slide">
-				<h2>education portal</h2>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span class="hide_text"> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span></p>
-				<h3 class="da-link"><a href="single-page.html" class="fa-btn btn-1 btn-1e">view more</a></h3>
-			</div>
-			<div class="da-slide">
-				<h2>online educations</h2>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<span class="hide_text"> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span></p>
-				<h3 class="da-link"><a href="single-page.html" class="fa-btn btn-1 btn-1e">view more</a></h3>
-			</div> -->
-	   </div>
-	</div>
-</div><!-- end slider -->
-
-
-
-<div class="main_bg"><!-- start main -->
-	<div class="container">
-		<div class="main row">
-			<div class="col-md-3 images_1_of_4 text-center">
-				<span class="bg"><i class="fa fa-globe"></i></span>
-				<h4><a href="#">Sed Porta Dolor</a></h4>
-				<p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text 1500s.</p>
-				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
-			</div>
-			<div class="col-md-3 images_1_of_4 bg1 text-center">
-				<span class="bg"><i class="fa fa-laptop"></i></span>
-				<h4><a href="#">Lorem Ipsum is</a></h4>
-				<p class="para">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
-			</div>
-			<div class="col-md-3 images_1_of_4 bg1 text-center">
-				<span class="bg"><i class="fa fa-cog"></i></span>
-				<h4><a href="#">Sed Porta Dolor</a></h4>
-				<p class="para">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32  by H. Rackham.</p>
-				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
-			</div>
-			<div class="col-md-3 images_1_of_4 bg1 text-center">
-				<span class="bg"><i class="fa fa-shield"></i> </span>
-				<h4><a href="#">Contrary  belief</a></h4>
-				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
-			</div>
-		</div>
-	</div>
-</div><!-- end main -->
-<div class="main_btm"><!-- start main_btm -->
-	<div class="container">
-		<div class="main row">
-			<div class="col-md-6 content_left">
-				<img src="images/pic1.jpg" alt="" class="img-responsive">
-			</div>
-			<div class="col-md-6 content_right">
-				<h4>Lorem Ipsum is simply <span>dummy text of the ornare  </span> vulputate printing and  There are many variations of passages.</h4>
-				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words. </p>
-				<a href="single-page.html" class="fa-btn btn-1 btn-1e">read more</a>
-			</div>
-		</div>
-
-	</div>
-</div>
-</div><!-- ng view ending the div -->
-<div class="footer_bg"><!-- start footer -->
-	<div class="container">
-		<div class="row  footer">
-			<div class="copy text-center">
-				<p class="link"><span>&#169; All rights reserved | Design by&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a></span></p>
-			</div>
-		</div>
-	</div>
-</div>
+  <div ng-view="">
+  </div>
 </body>
 </html>

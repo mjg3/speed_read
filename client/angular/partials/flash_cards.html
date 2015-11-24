@@ -1,11 +1,28 @@
 <div ng-controller = "flashCardsController">
 
-<h1>Flash cards excercise </h1>
-<span ng-bind="word"></span>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4  col-md-offset-4 images_1_of_4 text-center">
+          <span class="bg"><i class="fa fa-rocket"></i></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h1>Word Ticker Challange</h1>
+          <h4>Follow along with the words as they flash on the screen.</h4>
 
-
-
-
-
-
-</div>
+          <div class="dashboard">
+            <h2 ng-bind="word"></h2>
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{percentage_complete}}%;">
+              <span class="sr-only">60% Complete</span>
+            </div>
+          </div>
+          <div class="centered">
+            <button class="btn btn-success btn-lg align-center" ng-click="start()">Start</button>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end of container -->
+  </div>
