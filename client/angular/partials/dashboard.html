@@ -1,0 +1,41 @@
+<div ng-controller="analyticsController">
+  <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <h1><span class="space_bg"><i class="fa fa-bar-chart-o"></span></i>Your Progress</h1>
+          </div>
+        </div>
+    ​
+        <div class="row">
+          <div class="col-md-12">
+            <div class="jumbotron">
+              <canvas id="line" class="chart chart-line" chart-data="data"
+                chart-labels="labels" chart-legend="true" chart-series="series"
+                chart-click="onClick" >
+              </canvas>
+            </div>
+          </div>
+        </div>
+    ​
+        <div class="row">
+          <div class="col-md-4">
+            <div class="jumbotron">
+              <h3><span class="space_md"><i class="fa fa-hand-o-right"></span></i>Keep practicing!</h3>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="jumbotron">
+              <h3><span class="space_md"><i class="fa fa-hand-o-right"></span></i>Keep reading!</h3>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="jumbotron">
+              <h3><span class="space_md"><i class="fa fa-thumbs-o-up"></span></i>Improve!</h3>
+            </div>
+          </div>
+        </div>
+    ​
+      </div> <!-- end of container -->
+    </body>
+    </html>
