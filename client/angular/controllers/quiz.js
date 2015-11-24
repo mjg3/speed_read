@@ -1,5 +1,7 @@
 reading_app.controller('quizController', function($scope, $rootScope, $interval, $location, quizFactory){
-
+  if($rootScope.user == null) {
+    $location.path('/');
+  }
 
   $scope.userAnswers;
   $scope.show_quiz = function() {

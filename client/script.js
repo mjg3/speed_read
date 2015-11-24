@@ -13,6 +13,9 @@ reading_app.config(function (authProvider) {
       if (!jwtHelper.isTokenExpired(token)) {
         if (!auth.isAuthenticated) {
           auth.authenticate(store.get('profile'), token);
+          var profile = store.get('profile');
+          var user = {name: auth.profile.nickname, email: auth.profile.email, user_id: auth.profile.user_id}
+          $rootScope.user = user;
         }
       } else {
         // Either show the login page or use the refresh token to get a new idToken

@@ -37,6 +37,9 @@ reading_app.controller('loginController', function ($scope, $http, auth, store, 
     auth.signout();
     store.remove('profile');
     store.remove('token');
+    $rootScope.user = null;
+    console.log('signed_out');
+    $location.path('/');
   }
 
 

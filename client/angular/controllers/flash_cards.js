@@ -1,6 +1,8 @@
 reading_app.controller('flashCardsController', function($scope, $rootScope, $interval, $location, quizFactory){
 
-
+  if($rootScope.user == null) {
+    $location.path('/');
+  }
 
   quizFactory.getQuiz(function(info) {
     console.log(info);

@@ -14,4 +14,8 @@ module.exports = function(app) {
   app.post('/add_user', function(req, res){
     User.add(req, res);
   })
+
+  app.post('/get_user', function(req, res){
+    User.get(req, res);;
+  })
 };

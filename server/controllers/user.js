@@ -7,7 +7,7 @@ module.exports = (function(){
   return {
     add: function(req, res){
       User.find({user_id: req.body.user_id}, function(error, person){
-                console.log(person);
+        console.log(person);
         if (person[0]) {
           console.log("The user was already in the database");
           res.end();
@@ -21,6 +21,18 @@ module.exports = (function(){
             console.log("There was a problem attempting to add a new user to the database");
           })
           res.end();
+        }
+      })
+    },
+
+    get: function(req, res){
+      User.find({user_id: req.body.user_id}, function(error, person){
+        console.log(person);
+        if (error) {
+          console.log(error);
+        }
+        else {
+          res.json(person);
         }
       })
     }
