@@ -4,6 +4,7 @@ reading_app.controller('quizController', function($scope, $rootScope, $interval,
   }
 
   $scope.userAnswers;
+  $scope.info;
   var time = {}
   $scope.show_quiz = function() {
     quizFactory.getQuiz($rootScope.choice, function(info) {
@@ -40,9 +41,15 @@ reading_app.controller('quizController', function($scope, $rootScope, $interval,
       $location.path('/line')
       }
 
+  $scope.pickQuizDiagnostic = function() {
+      $rootScope.choice = $scope.choice;
+      $location.path('/diagnostic');
+  }
+
   $scope.startTime = function() {
     quizFactory.getQuiz($rootScope.choice, function(info){
-      $scope.passage = info.passage;
+      $scope.info = info;
+      console.log($scope.info);
     })
     time.begin = new Date().getTime();
     console.log(time.begin);
@@ -51,7 +58,14 @@ reading_app.controller('quizController', function($scope, $rootScope, $interval,
   $scope.endTime  = function() {
     time.end = new Date().getTime();
     time.total = time.end - time.begin;
-    console.log(time.total);
+    var number_of_words_in_passage = $scope.info[0].passage.split(" ");
+    time_in_seconds = time.total/1000;
+
+    var words_per_second = number_of_words_in_passage.length/time_in_seconds;
+    var words_per_minute = words_per_second * 60;
+    quizFactory.storeDiagnostic(words_per_minute, function(){
+      $location.path('/dashboard');
+    });
   }
 
   if ($rootScope.flag) {

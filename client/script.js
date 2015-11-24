@@ -25,16 +25,6 @@ reading_app.config(function (authProvider) {
   });
 });
 
-reading_app.directive('wrapOwlcarousel', function () {  
-    return {
-        restrict: 'E',
-        link: function (scope, element, attrs) {
-            var options = scope.$eval($(element).attr('data-options'));
-            $(element).owlCarousel(options);
-        }
-    };
-});
-
 reading_app.run(function(auth) {
   // This hooks al auth events to check everything as soon as the app starts
   auth.hookEvents();

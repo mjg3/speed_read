@@ -11,6 +11,10 @@ module.exports = function(app) {
     Quiz.store(req, res);
   })
 
+  app.post('/store_diagnostic', function(req, res){
+    User.store_diagnostic(req, res);
+  })
+
   app.post('/add_user', function(req, res){
     User.add(req, res);
   })

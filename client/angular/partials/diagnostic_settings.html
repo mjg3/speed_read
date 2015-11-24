@@ -1,3 +1,10 @@
+<!-- <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script> -->
+ <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<div ng-controller="quizController">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <style media="screen">
   .footer_bg {
     width: 100% !important;
@@ -48,45 +55,39 @@
     background-color: #E0E0E0;
     padding: 15px 20px;
     border-radius: 5px;
+​
+    margin-bottom: 60px;
   }
   h1, h2, h4 {
     text-align: center;
   }
+  /** IMGS **/
+  img {
+    width: 100%;
+    height: 250px;
+  }
+  .bottom {
+    margin-top: 70px;
+  }
+  .books-2 {
+    margin-top: 35px;
+  }
+  .radio label {
+    font-size: 16px;
+  }
 </style>
 <!-- start plugins -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <!-- start slider -->
 <link href="css/slider.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
-<script type="text/javascript" src="js/jquery.cslider.js"></script>
 ​
-<!-- Owl Carousel Assets -->
-<link href="css/owl.carousel.css" rel="stylesheet">
-<script src="js/owl.carousel.js"></script>
-<script>
-  $(document).ready(function() {
-​
-    $("#owl-demo").owlCarousel({
-      items : 4,
-      lazyLoad : true,
-      autoPlay : true,
-      navigation : true,
-      navigationText : ["", ""],
-      rewindNav : true,
-      scrollPerPage : false,
-      pagination : false,
-      paginationNumbers : false,
-      loop: true
-    });
-​
-  });
-</script>
 <!-- font-Awesome -->
 <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
 <!-- font-Awesome -->
-
+</head>
+<body>
 ​
 <div class="container">
   <div class="row">
@@ -102,96 +103,72 @@
   </div>
 </div>
 ​
-<!-- START OF CAROUSEL -->
-<!-- start-img-cursual---->
 <div class="container">
-  <div id="owl-demo" class="owl-carousel text-center">
-    <div class="item">
-      <div class="cau_left">
-        <img class="lazyOwl" data-src="images/books/goblet.jpg" alt="Lazy Owl Image">
-      </div>
-      <div class="cau_left">
-        <h4><a href="#">Harry Potter and the Goblet of Fire</a></h4>
-        <p>J.K. Rowling</p>
-      </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-2">
+        <img src="images/books/gatsby.gif" alt="" />
+        <div class="radio">
+          <label><input type="radio" value="2" ng-model="choice.passage_id" name="optradio">The Great Gatsby</label>
+        </div>
     </div>
-    <div class="item">
-      <div class="cau_left">
-        <img class="lazyOwl" data-src="images/books/gatsby.gif" alt="Lazy Owl Image">
-      </div>
-      <div class="cau_left">
-        <h4><a href="#">The Great Gatsby</a></h4>
-        <p>F. Scott Fitzgerald</p>
-      </div>
+    <div class="col-md-2">
+        <img src="images/books/mocking_bird.jpg" alt="" />
+        <div class="radio">
+          <label><input type="radio" value="1" ng-model="choice.passage_id" name="optradio">To Kill a Mockingbird</label>
+        </div>
     </div>
-    <div class="item">
-      <div class="cau_left">
-        <img class="lazyOwl" data-src="images/books/flies.jpg" alt="Lazy Owl Image">
-      </div>
-      <div class="cau_left">
-        <h4><a href="#">Lord of the Flies</a></h4>
-        <p>William Golding</p>
-      </div>
+    <div class="col-md-2">
+        <img src="images/books/enders_game.jpg" alt="" />
+        <div class="radio">
+          <label><input type="radio" value="6" ng-model="choice.passage_id" name="optradio">Ender's Game</label>
+        </div>
     </div>
-    <div class="item">
-      <div class="cau_left">
-        <img class="lazyOwl" data-src="images/books/mocking_bird.jpg" alt="Lazy Owl Image">
-      </div>
-      <div class="cau_left">
-        <h4><a href="#">To Kill a Mockingbird</a></h4>
-        <p>Harper Lee</p>
-      </div>
+    <div class="col-md-2">
+        <img src="images/books/flies.jpg" alt="" />
+        <div class="radio">
+          <label><input type="radio" value="5" ng-model="choice.passage_id" name="optradio">Lord of the Flies</label>
+        </div>
     </div>
-    <div class="item">
-      <div class="cau_left">
-        <img class="lazyOwl" data-src="images/books/enders_game.jpg" alt="Lazy Owl Image">
-      </div>
-      <div class="cau_left">
-        <h4><a href="#">Ender's Game</a></h4>
-        <p>Orson Scott Card</p>
-      </div>
+    <div class="col-md-2">
+        <img src="images/books/goblet.jpg" alt="" />
+        <div class="radio">
+          <label><input type="radio" value="3" ng-model="choice.passage_id" name="optradio">Harry Potter and the Goblet of Fire</label>
+        </div>
     </div>
-    <div class="item">
-      <div class="cau_left">
-        <img class="lazyOwl" data-src="images/books/atlas.jpg" alt="Lazy Owl Image">
-      </div>
-      <div class="cau_left">
-        <h4><a href="#">Atlas Shrugged</a></h4>
-        <p>Ayn Rynd</p>
-      </div>
+    <div class="col-md-2">
+        <img src="images/books/zen.jpg" alt="" />
+        <div class="radio">
+          <label><input type="radio" value="8" ng-model="choice.passage_id" name="optradio">Zen and the Art of Motorcycle Maintenance</label>
+        </div>
     </div>
-    <div class="item">
-      <div class="cau_left">
-        <img class="lazyOwl" data-src="images/books/catcher.gif" alt="Lazy Owl Image">
-      </div>
-      <div class="cau_left">
-        <h4><a href="#">Catcher in the Rye</a></h4>
-        <p>J.D. Salinger</p>
-      </div>
-    </div>
-    <div class="item">
-      <div class="cau_left">
-        <img class="lazyOwl" data-src="images/books/huck.jpg" alt="Lazy Owl Image">
-      </div>
-      <div class="cau_left">
-        <h4><a href="#">The Adventures of Huckleberry Finn</a></h4>
-        <p>Mark Twain</p>
-      </div>
-    </div>
-    <div class="item">
-      <div class="cau_left">
-        <img class="lazyOwl" data-src="images/books/zen.jpg" alt="Lazy Owl Image">
-      </div>
-      <div class="cau_left">
-        <h4><a href="#">Zen and the Art of Motorcycle Maintenance</a></h4>
-        <p>Robert M. Pirsig</p>
-      </div>
-    </div>
-​
   </div>
+​
+  <div class="row books-2">
+    <div class="col-md-2 col-md-offset-3">
+        <img src="images/books/atlas.jpg" alt="" />
+        <div class="radio">
+          <label><input type="radio" value="7" ng-model="choice.passage_id"  name="optradio">Atlas Shrugged</label>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <img src="images/books/catcher.gif" alt="" />
+        <div class="radio">
+          <label><input type="radio" value="9" ng-model="choice.passage_id" name="optradio">Catcher In The Rye</label>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <img src="images/books/huck.jpg" alt="" />
+        <div class="radio">
+          <label><input type="radio" value="4" ng-model="choice.passage_id" name="optradio">The Adventures of Huckleberry Finn</label>
+        </div>
+    </div>
+  </div>
+  <div class="col-md-4 images_1_of_4 text-center">
+    <span class="bg"><i class="fa fa-rocket"></i></span>
+    <h3>Begin your diagnositc exam</h3>
+    <button ng-click="pickQuizDiagnostic()" class="fa-btn btn-1 btn-1e">Start</button>
+  </div>
+  </div> <!-- end of books container -->
+​
 </div>
-<!-- //End-img-cursual---->
-<!-- END OF CAROUSEL -->
-​
-​
-​

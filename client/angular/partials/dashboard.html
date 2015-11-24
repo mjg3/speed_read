@@ -6,17 +6,29 @@
             <h1><span class="space_bg"><i class="fa fa-bar-chart-o"></span></i>Your Progress</h1>
           </div>
         </div>
-    ​
+
         <div class="row">
           <div class="col-md-12">
             <div class="jumbotron">
-              <canvas id="line" class="chart chart-line" chart-data="data"
-                chart-labels="labels" chart-legend="true" chart-series="series"
+              <canvas id="line" class="chart chart-line" chart-data="diagnostic_data_holder"
+                chart-labels="diagnostic_labels" chart-legend="true" chart-series="diagnostic_series"
                 chart-click="onClick" >
               </canvas>
             </div>
           </div>
         </div>
+    ​
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron">
+          <canvas id="line" class="chart chart-line" chart-data="data"
+            chart-labels="labels" chart-legend="true" chart-series="series"
+            chart-click="onClick" >
+          </canvas>
+        </div>
+      </div>
+    </div>
+
     ​
         <div class="row">
           <div class="col-md-4">

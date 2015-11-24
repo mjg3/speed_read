@@ -68,6 +68,9 @@
   .btns {
     margin-top: 20px;
   }
+  .white {
+    color: white;
+  }
 </style>
 <body>
   <div class="container">
@@ -86,7 +89,7 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="dashboard">
-          <span ng-bind="passage"></span>
+          <p ng-bind="info[0].passage">{{passage}}</p>
         </div>
         <div class="btns">
           <button ng-click="startTime()" class="btn btn-lg btn-success"><span class="space_bg"><i class="fa fa-clock-o"></span></i>Start Reading!</a>

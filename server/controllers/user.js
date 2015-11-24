@@ -35,6 +35,18 @@ module.exports = (function(){
           res.json(person);
         }
       })
+    },
+
+    store_diagnostic: function(req, res) {
+      User.update({user_id: req.body.user_id}, {$push: {diagnostic_performances: {speed: req.body.words_per_minute, date: Date()}}}, function(error){
+        if (error) {
+          console.log(error)
+        }
+        else {
+          console.log('added a diagnostic');
+          res.end()
+        }
+      })
     }
 
   }

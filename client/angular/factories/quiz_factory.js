@@ -21,6 +21,13 @@ reading_app.factory('quizFactory', function($http, $rootScope, $location){
     })
   }
 
+  factory.storeDiagnostic = function(words_per_minute, callback){
+    var diagnostic = {words_per_minute: words_per_minute, user_id: $rootScope.user.user_id};
+    $http.post('/store_diagnostic', diagnostic).success(function(){
+      callback();
+    })
+  }
+
   factory.getPerfomance = function(){
     console.log("IN THE PERFORMANCE FUNCTION");
   }

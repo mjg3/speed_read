@@ -100,7 +100,9 @@ body {
 	padding: 0;
 }
 .navbar-default .navbar-nav > .active > a,.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover{
-	background: #FF5454;
+	/*background: #FF5454;*/
+  /* FLAG */
+  background: #88D498;
 	color: #ffffff;
 }
 .navbar-default .navbar-nav > li > a {
@@ -120,7 +122,7 @@ body {
 }
 /* start soc_icons */
 .soc_icons {
-
+​
 }
 .soc_icons ul{
 	margin-bottom: 0;
@@ -179,6 +181,7 @@ body {
 }
 .images_1_of_4 h4 a:hover{
 	text-decoration:none;
+  /* AND HERE Anchor tags */
 	color: #ff5454;
 }
 .images_1_of_4  span{
@@ -246,8 +249,12 @@ body {
 	transition: all 0.3s;
 }
 .btn-1 {
-	border: 2px solid #ff5454;
-	color: #3b3b3b;
+  /* AND HERE -- BUTTONS */
+	/*border: 2px solid #ff5454;
+	color: #3b3b3b;*/
+  /* FLAG */
+  border: 2px solid #88D498;
+  color: #88D498;
 }
 /* Button 1e */
 .btn-1e {
@@ -258,7 +265,9 @@ body {
 	height: 0;
 	top: 50%;
 	left: 50%;
-	background: #ff5454;
+	/*background: #ff5454;*/
+  /* FLAG */
+  background-color: #88D498;
 	opacity: 0;
 	-webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
 	-moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
@@ -357,7 +366,7 @@ body {
 	padding-right: 0;
 }
 .technology_list1{
-	margin-top: 20px;	
+	margin-top: 20px;
 }
 .pagination > li > a, .pagination > li > span {
 	font-size: 16px;
@@ -391,7 +400,7 @@ body {
 }
 .blog_left h4 a{
 	margin:0 0 20px;
-	
+​
 	display: block;
 	text-transform: capitalize;
 	font-size: 1.5em;
@@ -407,7 +416,7 @@ body {
 	color: #ff5454;
 }
 .blog_list{
-
+​
 }
 .blog_list ul li{
 	display:inline-block;
@@ -435,7 +444,7 @@ body {
 	color: #ff5454;
 	text-decoration: none;
 }
-
+​
 .read_more a{
 	position: relative;
 	z-index: 1;
@@ -467,7 +476,7 @@ body {
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;	
+	transition: all 0.3s ease-in-out;
 }
 .social_network_likes li a p{
 	padding:10px 0 5px;
@@ -517,7 +526,7 @@ body {
 	width:45px;
 	height:45px;
 	display:block;
-	background:url(../images/social-icons.png) no-repeat;	
+	background:url(../images/social-icons.png) no-repeat;
 	margin:0 auto;
 }
 .social_network i.twitter-icon{
@@ -749,7 +758,7 @@ body {
 	}
 	.h_menu {
 		position: relative;
-	}	
+	}
 	.soc_icons {
 		position: absolute;
 		top: 0px;
@@ -848,7 +857,7 @@ body {
 		padding: 4px 4px;
 	}
 	.detail h2{
-		font-size: 2em;	
+		font-size: 2em;
 	}
 }
 @media only screen and (max-width: 320px) {
