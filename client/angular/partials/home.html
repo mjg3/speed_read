@@ -23,7 +23,7 @@
   }
   .slider_bg {
     /*background-image: url(https://nelioabtesting.com/wp-content/uploads/2015/07/read-them-all.gif) !important;*/
-    background-image: url(https://33.media.tumblr.com/1672236d097893f6fe5197e631c9faea/tumblr_n2fzbozx9u1scp23ko1_400.gif) !important;
+    /*background-image: url(https://33.media.tumblr.com/1672236d097893f6fe5197e631c9faea/tumblr_n2fzbozx9u1scp23ko1_400.gif) !important;*/
     /*background-image: url(http://cdn.playbuzz.com/cdn/5879fa8d-0c9f-48c9-8ee6-aa557d0b6e0a/b5f9799b-816a-46d2-8723-ae0d6ecf35e2.gif) !important;*/
     margin-top: 30px !important;
     transform-origin: top;
@@ -50,13 +50,40 @@
   .books-2 {
     margin-top: 35px;
   }
+  #left_align {
+    text-align: left !important;
+  }
+  .header {
+    padding: 0;
+  }
+  .logo {
+    margin: 0;
+  }
+  #slides_control > div{
+  height: 500px;
+}
+/*img{
+  margin:auto;
+  width: 400px;
+}*/
+#slides_control {
+  /*position:absolute;*/
+  width: 100%;
+  /*left:50%;
+  top:20px;
+ margin-left:-200px;*/
+}
+.absolute {
+  position: absolute;
+}
 </style>
 <div class="header_bg">
 <div class="container">
 	<div class="row header">
 		<div class="logo navbar-left">
-			<h1><a href="index.html"><i class="fa fa-book"></i>   SpeedRead</a></h1>
+			<h1><a href="index.html"><i class="fa fa-book"></i>SpeedRead - a hospital for the mind</a></h1>
 		</div>
+
 		<div class="clearfix"></div>
 	</div>
 </div>
@@ -76,14 +103,14 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="index.html">Home</a></li>
+		        <li class="active"><a href="index.html"><i class="fa fa-home"></i><span class="space"></span>Home</a></li>
             <li><a ng-controller="loginController" ng-click="login()" ><i class="fa fa-user"></i><span class="space"></span>Login</a></li>
             <li><a href="#/diagnostic_settings"><i class="fa fa-check"></i><span class="space"></span>Diagnostic</a></li>
 		        <li><a href="#/settings"><i class="fa fa-gears"></i><span class="space"></span>Challenges</a></li>
             <li><a href="#/dashboard"><i class="fa fa-bar-chart-o"></i><span class="space"></span>Progress</a></li>
+            <li><a href="#/about"><i class="fa fa-info"></i><span class="space"></span>About</a></li>
             <li><a ng-controller="loginController" ng-click="logout()"><i class="fa fa-user"></i><span class="space"></span>Logout</a></li>
-            <li><a href=""><i class="fa fa-info"></i><span class="space"></span>About</a></li>
-		      </ul>
+          </ul>
 		    </div><!-- /.navbar-collapse -->
 		    <!-- start soc_icons -->
 		</nav>
@@ -93,7 +120,25 @@
 </div>
 <div class="slider_bg"><!-- start slider -->
 	<div class="container">
-    <div id="da-slider" class="da-slider text-center"></div>
+    <div id="da-slider" class="da-slider text-center">
+
+      <div ng-controller="carouselController" id="slides_control">
+          <div>
+            <carousel interval="myInterval">
+              <slide ng-repeat="slide in slides" active="slide.active">
+                <img ng-src="{{slide.image}}">
+                <p class="absolute"> This is a test</p>
+                <div class="carousel-caption">
+                  <h4>Slide {{$index+1}}</h4>
+                </div>
+              </slide>
+            </carousel>
+          </div>
+        </div>
+
+    </div>
+
+
 	</div>
 </div><!-- end slider -->
 <div class="main_bg"><!-- start main -->
@@ -121,7 +166,7 @@
 		</div>
 	</div>
 </div><!-- end main -->
-​
+​<h1> Our Current Selection </h1>
 <div class="container">
 <div class="row">
   <div class="col-md-2">
@@ -151,7 +196,7 @@
   </div>
   <div class="col-md-2">
     <a href="#">
-      <img src="images/books/atlas.jpg" alt="" />
+      <img src="images/books/zen.jpg" alt="" />
     </a>
   </div>
 </div>
@@ -180,7 +225,7 @@
     <i class="fa fa-lightbulb-o" id="special"></i>
   </div>
   <div class="col-md-5 margin-left">
-    <h2>The Difference is in the Research</h2>
+    <h1 id="left_align">The Difference is in the Research</h1>
     <p id="research">As the University of Utah School of Medicine reports, the average person reads around 300 words per minute. Speed readers can read between 500 and 700 words per minute -- or more. As long as your comprehension of reading material remains stable or increases, speed reading can greatly improve your efficiency.</p>
   </div>
 </div>

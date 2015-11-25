@@ -1,0 +1,121 @@
+<div ng-controller="analyticsController">
+<style media="screen">
+  .container{
+    margin-top: 40px;
+    color: #3B3B3B;
+  }
+  h1, h2, h4 {
+    text-align: center;
+  }
+  p {
+    color: #E0E0E0;
+    font-size: 18px;
+  }
+  h1{
+    margin-bottom: 25px;
+    font-family: 'texgyreadventorregular';
+    text-transform: uppercase;
+​
+    background-color: #E0E0E0;
+    padding: 15px 10px;
+    border-radius: 5px;
+  }
+  .centered {
+    text-align: center;
+    margin: 20px;
+  }
+  .progress {
+    margin-top: 20px;
+  }
+  .banner {
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+  h3 {
+    text-transform: uppercase;
+  }
+  .challenges {
+    margin-top: 80px;
+  }
+  h4 {
+    background-color: #E0E0E0;
+    padding: 15px 20px;
+    border-radius: 5px;
+  }
+  /* crucial CSS */
+  .bigger {
+    font-size: 16px;
+  }
+  .space_bg {
+    margin-right: 20px;
+  }
+  .space_md {
+    margin-right: 10px;
+    font-size: 24px;
+  }
+  .spacing {
+    line-height: 30px;
+  }
+  .badge_1 img {
+    width: 100% !important;
+    margin-bottom: 20px;
+​
+  }
+  .top {
+    margin-top: 40px;
+  }
+  .massive {
+   width: 100% !important;
+   font-size: 215px;
+   text-align: center;
+   color: rgba(210, 210, 210, 0.87)
+ }
+​
+​
+</style>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1><span class="space_bg"><i class="fa fa-trophy"></span></i>Your Badges</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-5">
+        <a href="#/" class="fa-btn btn-1 btn-1e">Back</a>
+      </div>
+    </div>
+​
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h4 class="spacing">Way to go! Keep up the great work!</h4>
+      </div>
+    </div>
+​
+    <div class="row top">
+      <div class="col-md-2 badge_1 col-md-offset-2">
+        <img ng-show="badge0" src="images/badges/gold.png" alt="" />
+        <i ng-hide="badge0" class="fa fa-question massive"></i>
+        <h4>Thunderbolt GREAT! </h4>
+      </div>
+      <div class="col-md-2 badge_1">
+        <img ng-show="badge1" src="images/badges/blue.png" alt="" />
+        <i ng-hide="badge1" class="fa fa-question massive"></i>
+        <h4> Thoughtful Reader </h4>
+      </div>
+      <div class="col-md-2 badge_1">
+        <img ng-show="badge2"  src="images/badges/red.png" alt="" />
+        <i ng-hide="badge2" class="fa fa-question massive"></i>
+        <h4>Quick Learner </h4>
+      </div>
+      <div class="col-md-2 badge_1">
+        <img ng-show="badge3" src="images/badges/blue.png" alt="" />
+        <i ng-hide="badge3" class="fa fa-question massive"></i>
+        <h4>King Reader</h4>
+      </div>
+    </div>
+​
+​
+​
+  </div> <!-- end of container -->
+</div>

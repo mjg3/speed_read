@@ -15,6 +15,10 @@ reading_app.config(function($routeProvider){
     templateUrl: '/angular/partials/line_by_line.html'
   })
 
+  .when('/about',{
+    templateUrl: '/angular/partials/about.html'
+  })
+
   .when('/diagnostic_settings', {
     templateUrl: '/angular/partials/diagnostic_settings.html'
   })
@@ -30,6 +34,10 @@ reading_app.config(function($routeProvider){
 
   .when('/dashboard', {
     templateUrl: '/angular/partials/dashboard.html'
+  })
+
+  .when('/badges', {
+    templateUrl: '/angular/partials/badges.html'
   })
 
   .when('/settings', {

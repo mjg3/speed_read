@@ -4,14 +4,14 @@ var fs = require('fs');
 // connect to the database
 mongoose.connect('mongodb://localhost/speed_read');
 // specify the path to all of the models
-var models_path = __dirname + '/../models'
-
-// read all of the files in the models_path and for each one check if it is a javascript file before requiring it
-fs.readdirSync(models_path).forEach(function(file) {
-  if(file.indexOf('.js') > 0) {
-    require(models_path + '/' + file);
-  }
-})
+// var models_path = __dirname + '/../models'
+//
+// // read all of the files in the models_path and for each one check if it is a javascript file before requiring it
+// fs.readdirSync(models_path).forEach(function(file) {
+//   if(file.indexOf('.js') > 0) {
+//     require(models_path + '/' + file);
+//   }
+// })
 
 Schema = mongoose.Schema;
 
@@ -21,7 +21,8 @@ var userSchema   = new mongoose.Schema({
   user_id: String,
   diagnostic_performances: Array,
   created_at: Date,
-  quiz_performances: Array
+  quiz_performances: Array,
+  badges: Array,
 
 })
 
@@ -82,3 +83,30 @@ var Quiz = mongoose.model('Quiz', quizSchema);
 // {question: "Where were the Riddles buried?", answer:["Hogwarts", "Little Hangleton churchyard", "Manchester City", "Haggard's Hill"]},
 // {question: "The Riddlers died with a look of what on their faces?", answer:["Pain", "Anger", "Terror", "surprise"]}]})
 // harrypotter.save(function(error){console.log(error)});
+// var huckleberryfinn = new Quiz({answer_key: ["Wrote a letter", "Thought about his adventures", "They were sick with small-pox", "Tore it up", "To hell"],
+// passage: "So I was full of trouble, full as I could be; and didn’t know what to do. At last I had an idea; and I says, I’ll go and write the letter—and then see if I can pray. Why, it was astonishing, the way I felt as light as a feather right straight off, and my troubles all gone. So I got a piece of paper and a pencil, all glad and excited, and set down and wrote: Miss Watson, your runaway nigger Jim is down here two mile below Pikesville, and Mr. Phelps has got him and he will give him up for the reward if you send. HUCK FINN. I felt good and all washed clean of sin for the first time I had ever felt so in my life, and I knowed I could pray now. But I didn’t do it straight off, but laid the paper down and set there thinking—thinking how good it was all this happened so, and how near I come to being lost and going to hell. And went on thinking. And got to thinking over our trip down the river; and I see Jim before me all the time: in the day and in the night-time, sometimes moonlight, sometimes storms, and we a-floating along, talking and singing and laughing. But somehow I couldn’t seem to strike no places to harden me against him, but only the other kind. I’d see him standing my watch on top of his’n, ‘stead of calling me, so I could go on sleeping; and see him how glad he was when I come back out of the fog; and when I come to him again in the swamp, up there where the feud was; and such-like times; and would always call me honey, and pet me and do everything he could think of for me, and how good he always was; and at last I struck the time I saved him by telling the men we had small-pox aboard, and he was so grateful, and said I was the best friend old Jim ever had in the world, and the only one he’s got now; and then I happened to look around and see that paper. It was a close place. I took it up, and held it in my hand. I was atrembling, because I’d got to decide, forever, betwixt two things, and I knowed it. I studied a minute, sort of holding my breath, and then says to myself: All right, then, I’ll go to hell”—and tore it up.",
+// passage_id: 4,
+// questions: [{question: "What did the main character do before praying?", answer: ["Grabbed his lucky charm", "Made his bed", "Wrote a letter", "Swam in the river"]},
+// {question: "After writing the letter what did Huck Finn think about?", answer:["Thought about his adventures", "How to repair his raft", "His lost stopwatch", "Going back home"]},
+// {question: "What did Huck Finn tell the men to save Jim?", answer:["They were delivering a package", "They were lost", "They were already under a contract", "They were sick with small-pox"]},
+// {question: "What did Huck Finn do with his letter?", answer:["Put it in a glass bottle", "Burned it", "Had a friend deliver it", "Tore it up"]},
+// {question: "Where is Huck Finn scared of going by hiding Jim", answer:["Back to prison", "To hell", "His uncle's farm", "Miss Watson's house"]}]})
+// huckleberryfinn.save(function(error){console.log(error)});
+// var zenmotorcycle = new Quiz({answer_key: ["Talk", "Traveling shows", "Isn't as deep", "Tomorrow never ends", "Info channels aren't deep enough"],
+// passage: "What I would like to do is use the time that is coming now to talk about some things that have come to mind. We're in such a hurry most of the time we never get much chance to talk. The result is a kind of endless day-to-day shallowness, a monotony that leaves a person wondering years later where all the time went and sorry that it's all gone. Now that we do have some time, and know it, I would like to use the time to talk in some depth about things that seem important. What is in mind is a sort of Chautauqua...that's the only name I can think of for it...like the traveling tent-show Chautauquas that used to move across America, this America, the one that we are now in, an old-time series of popular talks intended to edify and entertain, improve the mind and bring culture and enlightenment to the ears and thoughts of the hearer. The Chautauquas were pushed aside by faster-paced radio, movies and TV, and it seems to me the change was not entirely an improvement. Perhaps because of these changes the stream of national consciousness moves faster now, and is broader, but it seems to run less deep. The old channels cannot contain it and in its search for new ones there seems to be growing havoc and destruction along its banks. In this Chautauqua I would like not to cut any new channels of consciousness but simply dig deeper into old ones that have become silted in with the debris of thoughts grown stale and platitudes too often repeated. ``What's new?'' is an interesting and broadening eternal question, but one which, if pursued exclusively, results only in an endless parade of trivia and fashion, the silt of tomorrow. I would like, instead, to be concerned with the question ``What is best?,'' a question which cuts deeply rather than broadly, a question whose answers tend to move the silt downstream. There are eras of human history in which the channels of thought have been too deeply cut and no change was possible, and nothing new ever happened, and ``best'' was a matter of dogma, but that is not the situation now. Now the stream of our common consciousness seems to be obliterating its own banks, losing its central direction and purpose, flooding the lowlands, disconnecting and isolating the highlands and to no particular purpose other than the wasteful fulfillment of its own internal momentum. Some channel deepening seems called for.",
+// passage_id: 8,
+// questions: [{question: "We are in such a hurry we never get a chance to?", answer: ["Sit down", "Talk", "Work", "Draw"]},
+// {question: "What are Chautauquas?", answer:["Hunting tribes", "Traveling shows", "Mythical creatures", "Cultural food"]},
+// {question: "What downside came with radio, movies and TV?", answer:["Electricity shortage", "Miscommunication", "Isn't as deep", "Unaffordable"]},
+// {question: "What problem does the author associate with 'What's new?'", answer:["New replaces the old", "Tomorrow never ends", "Focus on the wrong topics", "Too narrow of a scope"]},
+// {question: "What is the current problem", answer:["Change is always possible", "Info channels aren't deep enough", "Chautauquas no longer exist", "People are misleading"]}]})
+// zenmotorcycle.save(function(error){console.log(error)});
+// var catcherintherye = new Quiz({answer_key: ["Out of Africa", "Speeding", "Illiterate", "His friends", "Somerset Maugham"],
+// passage: "The book I was reading was this book I took out of the library by mistake. They gave me the wrong book, and I didn't notice it till I got back to my room. They gave me Out of Africa, by Isak Dinesen. I thought it was going to stink, but it didn't. It was a very good book. I'm quite illiterate, but I read a lot. My favorite author is my brother D.B., and my next favorite is Ring Lardner. My brother gave me a book by Ring Lardner for my birthday, just before I went to Pencey. It had these very funny, crazy plays in it, and then it had this one story about a traffic cop that falls in love with this very cute girl that's always speeding. Only, he's married, the cop, so be can't marry her or anything. Then this girl gets killed, because she's always speeding. That story just about killed me. What I like best is a book that's at least funny once in a while. I read a lot of classical books, like The Return of the Native and all, and I like them, and I read a lot of war books and mysteries and all, but they don't knock me out too much. What really knocks me out is a book that, when you're all done reading it, you wish the author that wrote it was a terrific friend of yours and you could call him up on the phone whenever you felt like it. That doesn't happen much, though. I wouldn't mind calling this Isak Dinesen up. And Ring Lardner, except that D.B. told me he's dead. You take that book Of Human Bondage, by Somerset Maugham, though. I read it last summer. It's a pretty good book and all, but I wouldn't want to call Somerset Maugham up. I don't know, He just isn't the kind of guy I'd want to call up, that's all. I'd rather call old Thomas Hardy up. I like that Eustacia Vye.",
+// passage_id: 9,
+// questions: [{question: "What book did the author get by mistake?", answer: ["Out of Africa", "Paradise Pointe", "Catcher in the Rye", "Falling for Summer"]},
+// {question: "The cop falls in love with a girl that is always?", answer:["Dancing", "Painting", "Speeding", "Reading"]},
+// {question: "The author reads a lot but is quite what?", answer:["Emotional", "Illiterate", "Loud", "Uninterested"]},
+// {question: "The main character wishes good authors were?", answer:["His friends", "Fictional characters", "Always truthful", "Himself"]},
+// {question: "Who wrote the book Of Human Bondage?", answer:["Skyler Thomas", "Winston Chambers", "Vince Chime", "Somerset Maugham"]}]})
+// catcherintherye.save(function(error){console.log(error)});

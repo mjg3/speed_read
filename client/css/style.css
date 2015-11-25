@@ -26,7 +26,7 @@ body {
 }
 .header_bg1 {
 	border-top:8px groove #3b3b3b;
-	background: url('../images/slider_bg.jpg') no-repeat  left;
+	/*background: url('../images/slider_bg.jpg') no-repeat  left;*/
 	background-size: 100%;
 }
 .header{
@@ -149,7 +149,7 @@ body {
 }
 /* start slider */
 .slider_bg{
-	background: url('../images/slider_bg.jpg') no-repeat;
+	/*background: url('../images/slider_bg.jpg') no-repeat;*/
 	background-size: 100%;
 }
 .slider{

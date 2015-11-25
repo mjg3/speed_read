@@ -1,4 +1,26 @@
-var reading_app = angular.module('reading_app', ['ngRoute', 'auth0', 'angular-storage', 'angular-jwt', 'chart.js']);
+var reading_app = angular.module('reading_app', ['ui.bootstrap', 'ngRoute', 'auth0', 'angular-storage', 'angular-jwt', 'chart.js']);
+reading_app.controller('carouselController', function($scope){
+  $scope.carousel = function(){
+  $scope.myInterval = 3000;
+  $scope.slides = [
+    {
+      image: '/images/authors/capote.jpg'
+    },
+    {
+      image: '/images/authors/fitzgerald.jpg'
+    },
+    {
+      image: '/images/authors/harper.jpg'
+    },
+    {
+      image: '/images/authors/salinger.jpg'
+    }
+  ];
+};
+$scope.carousel();
+});
+
+
 reading_app.config(function (authProvider) {
   authProvider.init({
     domain: 'speed-read.auth0.com',

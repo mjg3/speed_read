@@ -49,6 +49,9 @@
   .bigger {
     font-size: 16px;
   }
+  .books-2 {
+    margin-top: 35px;
+  }
 </style>
 
 
@@ -56,6 +59,11 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h1>Choose settings</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-5">
+        <a href="#/" class="fa-btn btn-1 btn-1e">Back</a>
       </div>
     </div>
 ​
@@ -132,6 +140,28 @@
         </div>
       </div>
     </div>
+
+    <div class="row books-2">
+      <div class="col-md-2 col-md-offset-3">
+          <img src="images/books/zen.jpg" alt="" />
+          <div class="radio">
+            <label><input type="radio" value="7" ng-model="choice.passage_id"  name="optradio">Zen and the Art of Motorcycle Maintenance</label>
+          </div>
+      </div>
+      <div class="col-md-2">
+          <img src="images/books/catcher.gif" alt="" />
+          <div class="radio">
+            <label><input type="radio" value="9" ng-model="choice.passage_id" name="optradio">Catcher In The Rye</label>
+          </div>
+      </div>
+      <div class="col-md-2">
+          <img src="images/books/huck.jpg" alt="" />
+          <div class="radio">
+            <label><input type="radio" value="4" ng-model="choice.passage_id" name="optradio">The Adventures of Huckleberry Finn</label>
+          </div>
+      </div>
+    </div>
+
 ​
 ​
 ​

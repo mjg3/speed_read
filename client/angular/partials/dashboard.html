@@ -1,15 +1,23 @@
 <div ng-controller="analyticsController">
+  <style>
+  </style>
   <body>
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
             <h1><span class="space_bg"><i class="fa fa-bar-chart-o"></span></i>Your Progress</h1>
+            <div class="row">
+              <div class="col-md-2 col-md-offset-5">
+                <a href="#/" class="fa-btn btn-1 btn-1e">Back</a>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-12">
             <div class="jumbotron">
+              <h3> Your speed comapred to the national average </h3>
               <canvas id="line" class="chart chart-line" chart-data="diagnostic_data_holder"
                 chart-labels="diagnostic_labels" chart-legend="true" chart-series="diagnostic_series"
                 chart-click="onClick" >
@@ -21,6 +29,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="jumbotron">
+          <h3> Your comprehension compared to the National Average </h3>
           <canvas id="line" class="chart chart-line" chart-data="data"
             chart-labels="labels" chart-legend="true" chart-series="series"
             chart-click="onClick" >
@@ -33,21 +42,20 @@
         <div class="row">
           <div class="col-md-4">
             <div class="jumbotron">
-              <h3><span class="space_md"><i class="fa fa-hand-o-right"></span></i>Keep practicing!</h3>
+              <a href="#/settings"><h3><span class="space_md"><i class="fa fa-hand-o-right"></span></i>Keep practicing!</h3></a>
             </div>
           </div>
           <div class="col-md-4">
             <div class="jumbotron">
-              <h3><span class="space_md"><i class="fa fa-hand-o-right"></span></i>Keep reading!</h3>
+              <a href="#/diagnostic_settings"><h3><span class="space_md"><i class="fa fa-hand-o-right"></span></i>Keep reading!</h3></a>
             </div>
           </div>
           <div class="col-md-4">
             <div class="jumbotron">
-              <h3><span class="space_md"><i class="fa fa-thumbs-o-up"></span></i>Improve!</h3>
+              <h3><span class="space_md"><i ng-click="goToBadges()" class="fa fa-thumbs-o-up"></span></i>See your badges!</h3>
             </div>
           </div>
         </div>
     ​
       </div> <!-- end of container -->
-    </body>
-    </html>
+  </div>
