@@ -18,6 +18,7 @@ reading_app.controller('analyticsController', function($scope, $rootScope, $inte
       $scope.user_data = person_data[0];
       $scope.populatePerformance();
     })
+
   }
 
   $scope.populatePerformance = function() {
