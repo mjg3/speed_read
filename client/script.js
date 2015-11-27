@@ -27,16 +27,15 @@ reading_app.config(function (authProvider, $routeProvider, $httpProvider, jwtInt
     clientID: '5pDDXcSP929rZA96OJvpb7Rw7JgNzNlG'
   });
   // We're annotating this function so that the `store` is injected correctly when this file is minified
-jwtInterceptorProvider.tokenGetter = ['store', function(store) {
-  // Return the saved token
-  return store.get('token');
-}];
+  jwtInterceptorProvider.tokenGetter = ['store', function(store) {
+    // Return the saved token
+    return store.get('token');
+  }];
 
-$httpProvider.interceptors.push('jwtInterceptor');
-// ...
+  $httpProvider.interceptors.push('jwtInterceptor');
 });
 
-.run(function($rootScope, auth, store, jwtHelper, $location) {
+reading_app.run(function($rootScope, auth, store, jwtHelper, $location) {
 
   // This events gets triggered on refresh or URL change
   $rootScope.$on('$locationChangeStart', function() {
