@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 // var fs = require('fs');
 // connect to the database
-mongoose.connect('mongodb://speed_read:Speed1!@ds053788.mongolab.com:53788/heroku_xgd6mlc7');
+// mongoose.connect('mongodb://speed_read:Speed1!@ds053788.mongolab.com:53788/heroku_xgd6mlc7');
 // specify the path to all of the models
 // var models_path = __dirname + '/../models'
 //
