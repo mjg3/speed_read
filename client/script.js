@@ -21,13 +21,23 @@ $scope.carousel();
 });
 
 
-reading_app.config(function (authProvider) {
+reading_app.config(function (authProvider, $routeProvider, $httpProvider, jwtInterceptorProvider) {
   authProvider.init({
     domain: 'speed-read.auth0.com',
     clientID: '5pDDXcSP929rZA96OJvpb7Rw7JgNzNlG'
   });
-})
+  // We're annotating this function so that the `store` is injected correctly when this file is minified
+jwtInterceptorProvider.tokenGetter = ['store', function(store) {
+  // Return the saved token
+  return store.get('token');
+}];
+
+$httpProvider.interceptors.push('jwtInterceptor');
+// ...
+});
+
 .run(function($rootScope, auth, store, jwtHelper, $location) {
+
   // This events gets triggered on refresh or URL change
   $rootScope.$on('$locationChangeStart', function() {
     var token = store.get('token');
