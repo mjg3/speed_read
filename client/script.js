@@ -23,8 +23,8 @@ $scope.carousel();
 
 reading_app.config(function (authProvider, $routeProvider, $httpProvider, jwtInterceptorProvider) {
   authProvider.init({
-    domain: 'speed-read.auth0.com',
-    clientID: '5pDDXcSP929rZA96OJvpb7Rw7JgNzNlG'
+    domain: 'app44376244.auth0.com',
+    clientID: 'Rbm0nsp5YT23MWxNxT8WWL3LrLVfKx6b'
   });
   // We're annotating this function so that the `store` is injected correctly when this file is minified
   jwtInterceptorProvider.tokenGetter = ['store', function(store) {
