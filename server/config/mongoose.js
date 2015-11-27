@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 
-monoose.connect('mongodb://heroku_xgd6mlc7:4nn5bj4j4v96kf4m9edj83rhd@ds053788.mongolab.com:53788/heroku_xgd6mlc7');
+mongoose.connect('mongodb://heroku_xgd6mlc7:4nn5bj4j4v96kf4m9edj83rhd@ds053788.mongolab.com:53788/heroku_xgd6mlc7');
 Schema = mongoose.Schema;
 
 var userSchema   = new mongoose.Schema({
