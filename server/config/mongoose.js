@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var fs = require('fs');
+// var fs = require('fs');
 // connect to the database
 mongoose.connect('mongodb://localhost/speed_read');
 // specify the path to all of the models
