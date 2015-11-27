@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 // var fs = require('fs');
 // connect to the database
-mongoose.connect('mongodb://localhost/speed_read');
+// mongoose.connect('mongodb://localhost/speed_read');
 // specify the path to all of the models
 // var models_path = __dirname + '/../models'
 //
