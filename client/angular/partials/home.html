@@ -59,23 +59,25 @@
   .logo {
     margin: 0;
   }
+
+
+
   #slides_control > div{
-  height: 1250px;
-}
-/*img{
-  margin:auto;
-  width: 400px;
-}*/
-#slides_control {
-  /*position:absolute;*/
-  width: 100%;
-  /*left:50%;
-  top:20px;
- margin-left:-200px;*/
-}
-.absolute {
-  position: absolute;
-}
+    height: 200px;
+  }
+  img{
+    margin:auto;
+    width: 75%;
+    height: 200px;
+  }
+  #slides_control {
+    position:absolute;
+    width: 100%;
+
+    /*left:50%;*/
+    top:20px;
+   /*margin-left:-200px;*/
+  }
 </style>
 <div class="header_bg">
 <div class="container">
@@ -118,7 +120,6 @@
 		</div>
 	</div>
 </div>
-<div class="slider_bg"><!-- start slider -->
 	<div class="container">
     <div id="da-slider" class="da-slider text-center">
 
@@ -127,14 +128,12 @@
             <carousel interval="myInterval">
               <slide ng-repeat="slide in slides" active="slide.active">
                 <img ng-src="{{slide.image}}">
-                <p class="absolute"> This is a test</p>
                 <div class="carousel-caption">
-                  <h4>Slide {{$index+1}}</h4>
+                  <h4></h4>
                 </div>
               </slide>
             </carousel>
           </div>
-        </div>
 
     </div>
 

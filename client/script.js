@@ -4,9 +4,6 @@ reading_app.controller('carouselController', function($scope){
   $scope.myInterval = 3000;
   $scope.slides = [
     {
-      image: '/images/authors/capote.jpg'
-    },
-    {
       image: '/images/authors/fitzgerald.jpg'
     },
     {
