@@ -1,5 +1,8 @@
 <div ng-controller="analyticsController">
   <style>
+  .black {
+    color: black;
+  }
   </style>
   <body>
       <div class="container">
@@ -13,7 +16,8 @@
             </div>
           </div>
         </div>
-        <p> On your most recent diagnostic you read at {{diagnostic_data_holder[0]}} words per minute</p>
+        <h2 class="black"> You just read at a speed of {{diagnostic_data_holder[0][0]}} words per minute.</h2>
+        <!-- <h2>Math floor: {{ Math.floor(46.71 * 10) }} </h2> -->
         <div class="row">
           <div class="col-md-12">
             <div class="jumbotron">
@@ -28,7 +32,9 @@
     ​
     <div class="row">
       <div class="col-md-12">
-        <div class="jumbotron">
+        <h2 ng-show="data[0][0]" class="black"> On your most recent exam you got {{data[0][0] * 100}}% of the questions right.</h2>
+        <h2 ng-hide="data[0][0]" class="black"> Try honing your skills with some of our speed reading excercises <h3>
+        <div ng-show="data[0][0]" class="jumbotron">
           <h3> Your comprehension compared to the National Average </h3>
           <canvas id="line" class="chart chart-line" chart-data="data"
             chart-labels="labels" chart-legend="true" chart-series="series"

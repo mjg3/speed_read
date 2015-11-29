@@ -36,7 +36,7 @@ reading_app.controller('analyticsController', function($scope, $rootScope, $inte
     var national_average_speed = []
     for (var k = 0; k <$scope.user_data.diagnostic_performances.length; k++) {
       diagnostic_label_holder[k] = $scope.user_data.diagnostic_performances[k].date;
-      diagnostic_data_holder[k] =  $scope.user_data.diagnostic_performances[k].speed;
+      diagnostic_data_holder[k] =  Math.floor($scope.user_data.diagnostic_performances[k].speed);
       national_average_speed[k] = 250;
     }
     $scope.labels = label_holder;
@@ -50,6 +50,7 @@ reading_app.controller('analyticsController', function($scope, $rootScope, $inte
     // console.log($scope.series);
     $scope.diagnostic_labels = diagnostic_label_holder;
     $scope.diagnostic_data_holder[0] = diagnostic_data_holder;
+    console.log($scope.diagnostic_data_holder);
     $scope.diagnostic_data_holder[1] = national_average_speed;
     everything.speed = $scope.diagnostic_data_holder[0];
     $scope.diagnostic_series = ['Your Words Per Minute', 'National Average']
