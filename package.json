@@ -2,6 +2,8 @@
   "name": "test",
   "version": "0.0.1",
   "dependencies": {
+    "node": "4.2.2",
+    "npm": "2.14.7",
     "angular-chart.js": "^0.8.6",
     "body-parser": "latest",
     "express": "~4.2.0",
