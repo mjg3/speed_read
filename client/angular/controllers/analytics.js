@@ -30,8 +30,8 @@ reading_app.controller('analyticsController', function($scope, $rootScope, $inte
 
     for (var i = 0; i < $scope.user_data.quiz_performances.length; i++) {
       label_holder[i] = $scope.user_data.quiz_performances[i].date;
-      data_holder[i]  = $scope.user_data.quiz_performances[i].score;
-      national_average_comprehension[i] = .77;
+      data_holder[i]  = $scope.user_data.quiz_performances[i].score * 100;
+      national_average_comprehension[i] = 77;
     }
     var national_average_speed = []
     for (var k = 0; k <$scope.user_data.diagnostic_performances.length; k++) {
