@@ -1,10 +1,10 @@
 {
-  "name": "test",
+  "name": "app",
   "version": "0.0.1",
   "dependencies": {
     "body-parser": "latest",
     "express": "4.2.0",
+    "kerberos": "0.0.17",
     "mongoose": "latest"
-
   }
 }
