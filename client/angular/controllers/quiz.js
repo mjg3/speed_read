@@ -1,5 +1,6 @@
 reading_app.controller('quizController', function($scope, $rootScope, $interval, $location, quizFactory){
   if($rootScope.user == null) {
+    $rootScope.attempted_access = true
     $location.path('/');
   }
 

@@ -13,6 +13,12 @@ reading_app.factory('loginFactory', function($http){
 
 reading_app.controller('loginController', function ($scope, $http, auth, store, $location, $rootScope, loginFactory) {
 
+  $scope.load = function() {
+    if (!$rootScope.user && $rootScope.attempted_access) {
+      alert("Please log in to RushReads to start becoming a better reader!")
+      $rootScope.attempted_access = false
+    }
+  }
   $scope.login = function () {
     auth.signin({}, function (profile, token) {
       // Success callback
@@ -28,7 +34,7 @@ reading_app.controller('loginController', function ($scope, $http, auth, store, 
 
       $location.path('/');
     }, function () {
-      // Error callback
+      console.log('Problem trying to log in')
     });
   }
 

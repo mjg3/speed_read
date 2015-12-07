@@ -2,6 +2,7 @@
 reading_app.controller('flashCardsController', function($scope, $rootScope, $interval, $location, $timeout, quizFactory){
 
   if($rootScope.user == null) {
+    $rootScope.attempted_access = true
     $location.path('/');
   }
 

@@ -1,8 +1,11 @@
 reading_app.controller('analyticsController', function($scope, $rootScope, $interval, $location, quizFactory, userFactory){
   if($rootScope.user == null) {
+    $rootScope.attempted_access = true
     $location.path('/');
   }
   $scope.user_data;
+  $scope.user = $rootScope.user
+  console.log($scope.user)
   $scope.labels = [];
   $scope.data = [];
 
@@ -33,25 +36,28 @@ reading_app.controller('analyticsController', function($scope, $rootScope, $inte
       data_holder[i]  = $scope.user_data.quiz_performances[i].score * 100;
       national_average_comprehension[i] = 77;
     }
+    var test = []
     var national_average_speed = []
     for (var k = 0; k <$scope.user_data.diagnostic_performances.length; k++) {
       diagnostic_label_holder[k] = $scope.user_data.diagnostic_performances[k].date;
       diagnostic_data_holder[k] =  Math.floor($scope.user_data.diagnostic_performances[k].speed);
       national_average_speed[k] = 250;
+      test[k] = 500
+
     }
     $scope.labels = label_holder;
     $scope.data[0]  = data_holder;
     $scope.data[1]  = national_average_comprehension;
-    $scope.series = ['Your Comprehension Levels', 'National Average Comprehension Levels'];
+
+    $scope.series = ['Your Comprehension Levels', 'National Average Comprehension Levels', 'Color test comprehension'];
     everything.comprehension = $scope.data[0];
 
-    // console.log($scope.labels)
-    // console.log($scope.data);
-    // console.log($scope.series);
+
     $scope.diagnostic_labels = diagnostic_label_holder;
     $scope.diagnostic_data_holder[0] = diagnostic_data_holder;
     console.log($scope.diagnostic_data_holder);
     $scope.diagnostic_data_holder[1] = national_average_speed;
+    $scope.diagnostic_data_holder[2]  = test;
     everything.speed = $scope.diagnostic_data_holder[0];
     $scope.diagnostic_series = ['Your Words Per Minute', 'National Average']
 

@@ -8,7 +8,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            <h1><span class="space_bg"><i class="fa fa-bar-chart-o"></span></i>Your Progress</h1>
+            <h1><span class="space_bg"><i class="fa fa-bar-chart-o"></span></i>{{user.name}}'s Progress</h1>
             <div class="row">
               <div class="col-md-2 col-md-offset-5">
                 <a href="#/" class="fa-btn btn-1 btn-1e">Back</a>
@@ -16,7 +16,7 @@
             </div>
           </div>
         </div>
-        <h2 ng-show="diagnostic_data_holder[0][0]" class="black"> You just read at a speed of {{diagnostic_data_holder[0][0]}} words per minute.</h2>
+        <h2 ng-show="diagnostic_data_holder[0][0]" class="black"> You just read at a speed of {{diagnostic_data_holder[0][diagnostic_data_holder[0].length - 1]}} words per minute.</h2>
         <h2 ng-hide="diagnostic_data_holder[0][0]" class="black"> Take a diagnostic exam and find out how fast you can read </h2>
         <!-- <h2>Math floor: {{ Math.floor(46.71 * 10) }} </h2> -->
         <div ng-show="diagnostic_data_holder[0][0]" class="row">
@@ -33,7 +33,7 @@
     ​
     <div class="row">
       <div class="col-md-12">
-        <h2 ng-show="data[0][0]" class="black"> On your most recent exam you got {{data[0][0]}}% of the questions right.</h2>
+        <h2 ng-show="data[0][0]" class="black"> On your most recent exam you got {{data[0][data.length - 1]}}% of the questions right.</h2>
         <h2 ng-hide="data[0][0]" class="black"> Try honing your skills with some of our speed reading excercises <h3>
         <div ng-show="data[0][0]" class="jumbotron">
           <h3> Your comprehension compared to the National Average </h3>

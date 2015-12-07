@@ -13,11 +13,7 @@
     margin-right: 10px;
   }
   /* images CSS */
-  .lazyOwl {
-    /*width: 100%;*/
-    height: 270px !important;
-    margin: 0 auto !important;
-  }
+
   .cau_left h4 a {
     font-size: 18px !important;
   }
@@ -100,7 +96,7 @@
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
 		        <li class="active"><a href="index.html"><i class="fa fa-home"></i><span class="space"></span>Home</a></li>
-            <li><a ng-controller="loginController" ng-click="login()" ><i class="fa fa-user"></i><span class="space"></span>Login</a></li>
+            <li><a ng-controller="loginController" ng-click="login()" ng-init='load()' ><i class="fa fa-user"></i><span class="space"></span>Login</a></li>
             <li><a href="#/diagnostic_settings"><i class="fa fa-check"></i><span class="space"></span>Diagnostic</a></li>
 		        <li><a href="#/settings"><i class="fa fa-gears"></i><span class="space"></span>Challenges</a></li>
             <li><a href="#/dashboard"><i class="fa fa-bar-chart-o"></i><span class="space"></span>Progress</a></li>
