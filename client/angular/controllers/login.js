@@ -18,7 +18,7 @@ reading_app.controller('loginController', function ($scope, $http, auth, store, 
   }
   $scope.load = function() {
     if (!$rootScope.user && $rootScope.attempted_access) {
-      alert("Please log in to RushReads to start becoming a better reader!")
+      swal('Tell us about yourself first', "Please log in to RushReads before you start reading", "warning")
       $rootScope.attempted_access = false
     }
   }
@@ -29,8 +29,6 @@ reading_app.controller('loginController', function ($scope, $http, auth, store, 
       store.set('token', token);
       $rootScope.profile = auth;
       $scope.loggedIn = true;
-      console.log("About to DISPLAY PROFILE INFO");
-      console.log(auth.profile)
 
       var user = {name: auth.profile.nickname, email: auth.profile.email, user_id: auth.profile.user_id}
 
@@ -39,7 +37,6 @@ reading_app.controller('loginController', function ($scope, $http, auth, store, 
       });
 
     }, function () {
-      console.log('Problem trying to log in')
     });
   }
 
@@ -49,7 +46,6 @@ reading_app.controller('loginController', function ($scope, $http, auth, store, 
     store.remove('token');
     $rootScope.user = null;
     $scope.loggedIn = false;
-    console.log('signed_out');
   }
 
 });

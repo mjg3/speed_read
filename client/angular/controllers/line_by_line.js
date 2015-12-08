@@ -4,7 +4,10 @@ reading_app.controller('lineByLineController', function($scope, $rootScope, $int
     $rootScope.attempted_access = true
     $location.path('/');
   }
-
+  if (!$rootScope.choice.speed) {
+    $rootScope.no_chosen_speed = true;
+    $location.path('/settings')
+  }
   var data = {};
   $scope.sentences = [{}];
   quizFactory.getQuiz($rootScope.choice, function(info) {
@@ -27,7 +30,6 @@ $scope.startLineByLine = function() {
     if (counter >= current_sentence.length) {
       counter = 0;
       $scope.sentences[sentences_read].flag = 'hidden_class';
-      console.log($scope.sentences);
       sentences_read++;
     }
     else {

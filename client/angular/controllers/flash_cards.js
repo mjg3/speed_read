@@ -5,7 +5,10 @@ reading_app.controller('flashCardsController', function($scope, $rootScope, $int
     $rootScope.attempted_access = true
     $location.path('/');
   }
-
+  if (!$rootScope.choice.speed) {
+    $rootScope.no_chosen_speed = true;
+    $location.path('/settings')
+  }
   console.log($rootScope.choice);
   quizFactory.getQuiz($rootScope.choice, function(info) {
     $scope.passage = info[0].passage;
@@ -18,6 +21,8 @@ reading_app.controller('flashCardsController', function($scope, $rootScope, $int
 
 
   $scope.start = function() {
+
+
   var words_per_minute = 1000/($rootScope.choice.speed/60)
   var show_words = $interval(function(){
     $scope.word = $scope.words.shift();

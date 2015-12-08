@@ -4,9 +4,16 @@ reading_app.controller('quizController', function($scope, $rootScope, $interval,
     $location.path('/');
   }
 
+
+  if($rootScope.no_chosen_speed) {
+    $rootScope.no_chosen_speed = false
+  swal('Whoops', 'Please choose a reading speed before you start practicing', 'error')
+  }
+  
   $scope.userAnswers;
   $scope.info;
   var time = {}
+
   $scope.show_quiz = function() {
     quizFactory.getQuiz($rootScope.choice, function(info) {
       $scope.quiz = info;
@@ -21,7 +28,6 @@ reading_app.controller('quizController', function($scope, $rootScope, $interval,
 
   $scope.submit_quiz = function(quiz) {
     $rootScope.flag = false;
-    console.log(quiz.answer_key[0]);
     var correct = 0;
     for (var i = 0; i < quiz.answer_key.length; i++){
       if ($scope.userAnswers[i] == quiz.answer_key[i]) {
@@ -50,10 +56,8 @@ reading_app.controller('quizController', function($scope, $rootScope, $interval,
   $scope.startTime = function() {
     quizFactory.getQuiz($rootScope.choice, function(info){
       $scope.info = info;
-      console.log($scope.info);
     })
     time.begin = new Date().getTime();
-    console.log(time.begin);
   }
 
   $scope.endTime  = function() {
