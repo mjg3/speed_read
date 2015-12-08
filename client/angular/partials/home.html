@@ -69,17 +69,7 @@
    /*margin-left:-200px;*/
   }
 </style>
-<div class="header_bg">
-<div class="container">
-	<div class="row header">
-		<div class="logo navbar-left">
-			<h1><a href="index.html"><i class="fa fa-book"> </i>Rush Reads</a></h1>
-		</div>
-
-		<div class="clearfix"></div>
-	</div>
-</div>
-</div>
+<div ng-controller="loginController">
 <div class="container">
 	<div class="row h_menu">
 		<nav class="navbar navbar-default navbar-left" role="navigation">
@@ -95,13 +85,13 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="index.html"><i class="fa fa-home"></i><span class="space"></span>Home</a></li>
-            <li><a ng-controller="loginController" ng-click="login()" ng-init='load()' ><i class="fa fa-user"></i><span class="space"></span>Login</a></li>
-            <li><a href="#/diagnostic_settings"><i class="fa fa-check"></i><span class="space"></span>Diagnostic</a></li>
-		        <li><a href="#/settings"><i class="fa fa-gears"></i><span class="space"></span>Challenges</a></li>
-            <li><a href="#/dashboard"><i class="fa fa-bar-chart-o"></i><span class="space"></span>Progress</a></li>
+		        <li class="active"><a href="index.html"><i class="fa fa-book"></i><span class="space"></span>Rush Reads</a></li>
+            <li><a ng-hide="loggedIn" ng-click="login()" ng-init='load()' ><i class="fa fa-user"></i><span class="space"></span>Login</a></li>
+            <li><a ng-show="loggedIn" href="#/diagnostic_settings"><i class="fa fa-check"></i><span class="space"></span>Diagnostic</a></li>
+		        <li><a ng-show="loggedIn" href="#/settings"><i class="fa fa-gears"></i><span class="space"></span>Challenges</a></li>
+            <li><a ng-show="loggedIn" href="#/dashboard"><i class="fa fa-bar-chart-o"></i><span class="space"></span>Progress</a></li>
             <li><a href="#/about"><i class="fa fa-info"></i><span class="space"></span>About</a></li>
-            <li><a ng-controller="loginController" ng-click="logout()"><i class="fa fa-user"></i><span class="space"></span>Logout</a></li>
+            <li><a ng-show="loggedIn" ng-click="logout()"><i class="fa fa-user"></i><span class="space"></span>Logout</a></li>
           </ul>
 		    </div><!-- /.navbar-collapse -->
 		    <!-- start soc_icons -->
@@ -118,12 +108,11 @@
             <carousel interval="myInterval">
               <slide ng-repeat="slide in slides" active="slide.active">
                 <img ng-src="{{slide.image}}">
-                <div class="carousel-caption">
-                </div>
+                <!-- <div class="carousel-caption">
+                </div> -->
               </slide>
             </carousel>
           </div>
-
     </div>
 
 
@@ -136,19 +125,19 @@
 				<span class="bg"><i class="fa fa-check-square-o"></i></span>
 				<h4><a href="#/diagnostic">Diagnostic</a></h4>
 				<p class="para">First take the diagnostic test to calibrate your speed settings for the rest of the challenges.</p>
-				<a href="single-page.html" class="fa-btn btn-1 btn-1e">Start</a>
+				<a href="#/diagnostic" class="fa-btn btn-1 btn-1e">Start</a>
 			</div>
 			<div class="col-md-4 images_1_of_4 bg1 text-center">
 				<span class="bg"><i class="fa fa-align-left"></i></span>
-				<h4><a href="#">Line by line</a></h4>
+				<h4><a href="#/settings">Line by line</a></h4>
 				<p class="para">Increase your reading speed by reading each line of a paragraph individually.</p>
-				<a href="single-page.html" class="fa-btn btn-1 btn-1e">Start</a>
+				<a href="#/settings" class="fa-btn btn-1 btn-1e">Start</a>
 			</div>
 			<div class="col-md-4 images_1_of_4 bg1 text-center">
 				<span class="bg"><i class="fa fa-rocket"></i></span>
-				<h4><a href="#">Word Ticker</a></h4>
+				<h4><a href="#/settings">Word Ticker</a></h4>
 				<p class="para">Put your eyes and mind to the test as you reacd each word individually as it flashes across the screen.</p>
-				<a href="single-page.html" class="fa-btn btn-1 btn-1e">Start</a>
+				<a href="#/settings" class="fa-btn btn-1 btn-1e">Start</a>
 			</div>
 ​
 		</div>
@@ -228,3 +217,4 @@
   	</div>
   </div>
 ​
+</div>
