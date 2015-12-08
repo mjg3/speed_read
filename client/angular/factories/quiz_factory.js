@@ -14,8 +14,6 @@ reading_app.factory('quizFactory', function($http, $rootScope, $location){
     console.log("RootScope user_id: " + $rootScope.user.user_id);
     var grade = {score: percentage_correct, user_id: $rootScope.user.user_id};
     $http.post('/store_grade', grade).success(function(person){
-      console.log('stored the grade');
-      console.log(person);
       $location.path('/dashboard');
       factory.getPerfomance();
     })
@@ -29,7 +27,6 @@ reading_app.factory('quizFactory', function($http, $rootScope, $location){
   }
 
   factory.getPerfomance = function(){
-    console.log("IN THE PERFORMANCE FUNCTION");
   }
   return factory;
 });
