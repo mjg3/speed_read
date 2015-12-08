@@ -9,7 +9,6 @@ reading_app.controller('flashCardsController', function($scope, $rootScope, $int
     $rootScope.no_chosen_speed = true;
     $location.path('/settings')
   }
-  console.log($rootScope.choice);
   quizFactory.getQuiz($rootScope.choice, function(info) {
     $scope.passage = info[0].passage;
     $scope.words = $scope.passage.split(" ");
