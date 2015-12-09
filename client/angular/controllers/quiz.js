@@ -4,12 +4,6 @@ reading_app.controller('quizController', function($scope, $rootScope, $interval,
     $location.path('/');
   }
 
-
-  if($rootScope.no_chosen_speed) {
-    $rootScope.no_chosen_speed = false
-  swal('Whoops', 'Please choose a reading speed before you start practicing', 'error')
-  }
-  
   $scope.userAnswers;
   $scope.info;
   var time = {}
@@ -39,18 +33,40 @@ reading_app.controller('quizController', function($scope, $rootScope, $interval,
   }
 
   $scope.pickQuizFlash = function() {
+    if (typeof $scope.choice == "undefined") {
+      swal('Whoops', 'Please make sure you choose a speed and a book to continue', 'error')
+    }
+    else if (typeof $scope.choice.speed === "undefined" || typeof $scope.choice.passage_id == "undefined") {
+      swal('Whoops', 'Please make sure you choose a speed and a book to continue', 'error')
+    }
+    else {
+
     $rootScope.choice = $scope.choice;
     $location.path('/flash')
     }
+  }
 
   $scope.pickQuizLine = function() {
+    if (typeof $scope.choice == "undefined") {
+      swal('Whoops', 'Please make sure you choose a speed and a book to continue', 'error')
+    }
+    else if (typeof $scope.choice.speed === "undefined" || typeof $scope.choice.passage_id == "undefined") {
+      swal('Whoops', 'Please make sure you choose a speed and a book to continue', 'error')
+    }
+    else {
       $rootScope.choice = $scope.choice;
       $location.path('/line')
       }
+    }
 
   $scope.pickQuizDiagnostic = function() {
+      if (!$scope.choice) {
+        swal('Whoops', 'Please choose a reading before you begin your diagnostic', 'error')
+      }
+      else {
       $rootScope.choice = $scope.choice;
       $location.path('/diagnostic');
+    }
   }
 
   $scope.startTime = function() {
